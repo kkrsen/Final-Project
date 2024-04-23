@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 
-from lib import hello_world
+from lib import download_gtfs_file
 
-hello_world()
+download_gtfs_file(url="http://web.mta.info/developers/data/nyct/subway/google_transit.zip")
