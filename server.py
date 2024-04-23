@@ -1,3 +1,6 @@
 #!/usr/bin/env python
 
-print("Hello World")
+
+from lib import hello_world
+
+hello_world()
