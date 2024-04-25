@@ -18,7 +18,7 @@ Short answers for the below questions suffice. If you want to alter your plan fo
 
 #### What have you done for your project so far?
 
-I have found a few libraries that I can use for my project. I created three modules two of which are executables. One executable has the cli code and the other is a server. And then the third module is a library. I also wrote a function that can download a URL (a GTFS file) and then unzip it.
+I have found a few libraries that I can use for my project. They are "requests", "flask", and "gtfs_kit". Flask is for making a simple hhtp server and requests allows you to get info from the internet over http.  I created three modules two of which are executables. One executable has the cli code and the other is a server. And then the third module is a library. I also wrote a function that can download a URL (a GTFS file) and then unzip it.
 
 #### What have you not done for your project yet?
 
