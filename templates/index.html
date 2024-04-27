@@ -1,13 +1,21 @@
 <html>
-    <head>
-        <title>GTFS Timetable</title>
-    </head>
-    <body>
-        <h1>GTFS Timetable</h1>
-        <ul>
-            {% for route, name in steps.items() %}
-            <li><a href="/step/{{ route }}">{{ name }}</a></li>
-            {% endfor %}
-        </ul>>
-    </body>
+
+<head>
+    <title>GTFS Timetable</title>
+</head>
+
+<body>
+    <h1>GTFS URL Upload</h1>
+    <ul>
+        {% for route, name in steps.items() %}
+        <li><a href="/step/{{ route }}">{{ name }}</a></li>
+        {% endfor %}
+    </ul>
+    <form action="{{ url_for("select") }}">
+        <label for="gtfs_url">Upload GTFS URL:</label><br>
+        <input type="text" id="gtfs_url" name="gtfs_url"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
 </html>

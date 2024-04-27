@@ -3,7 +3,7 @@
 
 # from lib import hello_world
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -20,12 +20,13 @@ def index():
 
 @app.route("/step/select")
 def select():
-    return "This is Select Date and Line/Station"
+    gtfs_url = request.args.get("gtfs_url")
+    return render_template("select.html", gtfs_url=gtfs_url)
 
 
 @app.route("/step/timetable")
 def timetable():
-    return "This is Timetable"
+    return render_template("timetable.html")
 
 
 if __name__ == "__main__":
