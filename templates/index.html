@@ -1,12 +1,12 @@
 <html>
     <head>
-        <title>Hello World</title>
+        <title>GTFS Timetable</title>
     </head>
     <body>
-        <h1>Let's go on a hike!</h1>
+        <h1>GTFS Timetable</h1>
         <ul>
-            {% for mt in mountain %}
-            <li><a href="/mountain/{{ mt }}">{{ mt }}</a></li>
+            {% for route, name in steps.items() %}
+            <li><a href="/step/{{ route }}">{{ name }}</a></li>
             {% endfor %}
         </ul>>
     </body>
