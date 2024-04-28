@@ -1,4 +1,3 @@
-import pandas as pd
 from gtfs_kit.feed import read_feed
 
 
