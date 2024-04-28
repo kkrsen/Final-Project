@@ -9,6 +9,13 @@
     <p>{{ gtfs_url }}</p>
     <form action="{{ url_for("timetable") }}">
         <input type="submit" value="Submit"><br>
+        {% for route in routes %}
+        <input type="radio" id="{{ route["route_id"] }}" name="route" value="{{ route["route_id"] }}">
+        <label for="{{ route["route_id"] }}" style="color: #{{ route["route_color"] }}">{{ route["route_short_name"] }}</label><br>
+        {% endfor %}
+    </form>
+    <form action="{{ url_for("timetable") }}">
+        <input type="submit" value="Submit"><br>
         {% for stop in stops %}
         <input type="radio" id="{{ stop["stop_id"] }}" name="stop" value="{{ stop["stop_id"] }}">
         <label for="{{ stop["stop_id"] }}">{{ stop["stop_name"] }}</label><br>
