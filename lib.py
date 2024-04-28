@@ -6,6 +6,8 @@ from gtfs_kit.feed import read_feed
 
 
 def download_gtfs_file(url: str):
+    print(url)
+    print(type(url))
     feed = read_feed(url, dist_units="mi")
     df_stops = pd.DataFrame(feed.stops)
     df_stops = df_stops.groupby("stop_name").first().reset_index()
@@ -14,3 +16,4 @@ def download_gtfs_file(url: str):
     df_routes = pd.DataFrame(feed.routes)
     routes = df_routes["route_id"].tolist()
     print(routes)
+    return stops, routes

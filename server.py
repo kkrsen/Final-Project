@@ -21,8 +21,8 @@ def index():
 @app.route("/step/select")
 def select():
     gtfs_url = request.args.get("gtfs_url")
-    gtfs_file = download_gtfs_file(gtfs_url)
-    return render_template("select.html", gtfs_url=gtfs_url)
+    stops, routes = download_gtfs_file(gtfs_url)
+    return render_template("select.html", gtfs_url=gtfs_url, stops=stops, routes=routes)
 
 
 @app.route("/step/timetable")
