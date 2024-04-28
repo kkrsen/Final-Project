@@ -8,9 +8,9 @@
     <h1>GTFS Train Selection</h1>
     <p>{{ gtfs_url }}</p>
     <form>
-        {% for stop in range(stops | length) %}
-        <input type="radio" id="stop{{ stop }}" name="stop" value="{{ stops[stop] }}">
-        <label for="stop{{ stop }}">{{ stops[stop] }}</label><br>
+        {% for stop in stops %}
+        <input type="radio" id="{{ stop["stop_id"] }}" name="stop" value="{{ stop["stop_id"] }}">
+        <label for="{{ stop["stop_id"] }}">{{ stop["stop_name"] }}</label><br>
         {% endfor %}
     </form>
 </body>
