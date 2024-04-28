@@ -1,6 +1,3 @@
-from io import BytesIO
-from zipfile import ZipFile
-import requests
 import pandas as pd
 from gtfs_kit.feed import read_feed
 
