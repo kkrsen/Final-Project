@@ -7,6 +7,12 @@
 <body>
     <h1>GTFS Train Selection</h1>
     <p>{{ gtfs_url }}</p>
+    <form>
+        {% for stop in range(stops | length) %}
+        <input type="radio" id="stop{{ stop }}" name="stop" value="{{ stops[stop] }}">
+        <label for="stop{{ stop }}">{{ stops[stop] }}</label><br>
+        {% endfor %}
+    </form>
 </body>
 
 </html>
