@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 
-# from lib import hello_world
-
 from flask import Flask, render_template, request
+
+from lib import download_gtfs_file
 
 app = Flask(__name__)
 
@@ -21,6 +21,7 @@ def index():
 @app.route("/step/select")
 def select():
     gtfs_url = request.args.get("gtfs_url")
+    gtfs_file = download_gtfs_file(gtfs_url)
     return render_template("select.html", gtfs_url=gtfs_url)
 
 
@@ -31,6 +32,3 @@ def timetable():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-
-
-# hello_world()
