@@ -27,7 +27,8 @@ def select():
 
 @app.route("/step/timetable")
 def timetable():
-    return render_template("timetable.html")
+    stop_id = request.args.get("stop")
+    return render_template("timetable.html", stop_id=stop_id)
 
 
 if __name__ == "__main__":
