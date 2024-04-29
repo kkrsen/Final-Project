@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 
+from datetime import date
 from flask import Flask, render_template, request
 import pandas as pd
 
@@ -38,10 +39,13 @@ def select():
 def timetable():
     stop_id = request.args.get("stop")
     route_id = request.args.get("route")
+    print(route_id)
     gtfs_url = request.args.get("gtfs_url")
     feed = read_feed(gtfs_url, dist_units="mi")
     if route_id is not None:
-        timetable = feed.build_route_timetable(route_id=route_id, dates=["20240428"])
+        timetable = feed.build_route_timetable(
+            route_id=route_id, dates=[date.today().strftime("%Y%m%d")]
+        )
         timetable = list(timetable.groupby(by="stop_id"))
         stops = feed.stops.to_dict(orient="records")
         stop_timetables = []
@@ -51,9 +55,12 @@ def timetable():
                 if stop["stop_id"] == stop_id:
                     stop_name = stop["stop_name"]
                     break
+            if stop_id[-1] == "N":
+                stop_name += " North"
+            if stop_id[-1] == "S":
+                stop_name += " South"
             stop_timetable = stop_timetable.to_dict(orient="records")
             stop_timetables.append((stop_id, stop_name, stop_timetable))
-            print(stop_timetable)
         return render_template(
             "timetable.html",
             stop_id=stop_id,
