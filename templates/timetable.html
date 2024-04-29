@@ -2,12 +2,31 @@
 
 <head>
     <title>GTFS Timetable</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>GTFS Timetable</h1>
     <p>Route: {{ route_id }}</p>
-    <p>Stop: {{ stop_id }}</p>
+    <table>
+        {% for stop_id, stop_name, stop_timetable in stop_timetables %}
+            <tr>
+                <th>{{ stop_name }}</th>
+                {% for stop in stop_timetable %}
+                    <td>{{ stop["arrival_time"] }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 
 </html>
