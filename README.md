@@ -2,6 +2,8 @@
 
 Final project for my Intro to Problem Solving and Programming in Python class CIS 1051 Spring 2024
 
+Video Walkthrough Link: <https://youtu.be/KosZaSiZOYo>
+
 I'd say the most challenging thing for me was that I had very little time to
 complete this project since I couldn't work on it for a while because of my
 concussion. Despite that, I think that I still managed to do very well on my
